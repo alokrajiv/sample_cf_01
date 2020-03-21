@@ -36,10 +36,11 @@ exports.handler = async (event: any, context: any) => {
 
   try {
     const db = await connectToDatabase(process.env.MONGODB_URI, process.env.MONGODB_DBNAME);
-    const result = queryDatabase(db);
+    const result = await queryDatabase(db);
     console.log("=> returning result: ", result);
   } catch (error) {
     console.log("=> an error occurred: ", error);
+    console.log(process.env.MONGODB_URI);
     throw error;
   }
 };

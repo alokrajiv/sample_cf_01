@@ -5,11 +5,11 @@ Resources:
   MetaDataFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: dist/dbconn.handler
+      Handler: dist/metadata/index.handler
       Runtime: nodejs10.x
       CodeUri: ./
       Events:
-        MyTimeApi:
+        GetMetaDataApi:
           Type: Api
           Properties:
             Path: /MetaDataResource
@@ -17,11 +17,11 @@ Resources:
   TimeFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: dist/index.handler
+      Handler: dist/time/index.handler
       Runtime: nodejs10.x
       CodeUri: ./
       Events:
-        MyTimeApi:
+        GetTimeApi:
           Type: Api
           Properties:
             Path: /TimeResource
