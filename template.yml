@@ -2,6 +2,18 @@ AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: Outputs the time
 Resources:
+  MetaDataFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: dist/dbconn.handler
+      Runtime: nodejs10.x
+      CodeUri: ./
+      Events:
+        MyTimeApi:
+          Type: Api
+          Properties:
+            Path: /MetaDataResource
+            Method: GET
   TimeFunction:
     Type: AWS::Serverless::Function
     Properties:
