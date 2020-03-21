@@ -17,15 +17,7 @@ async function connectToDatabase (uri: string, dbName: string) {
 
 async function queryDatabase (db: Db) {
   console.log("=> query database");
-
-  try {
-    await db.collection("metadata").find({}).toArray();
-    return { statusCode: 200, body: "success" };
-  }
-  catch (err) {
-    console.log("=> an error occurred: ", err);
-    return { statusCode: 500, body: "error" };
-  }
+  return db.collection("metadata").find({}).toArray();
 }
 
 exports.handler = async (event: any, context: any) => {
@@ -37,6 +29,7 @@ exports.handler = async (event: any, context: any) => {
     const db = await connectToDatabase(process.env.MONGODB_CONNSTR, process.env.MONGODB_DBNAME);
     const result = await queryDatabase(db);
     console.log("=> returning result: ", result);
+    return { statusCode: 200, body: result };
   } catch (error) {
     console.log("=> an error occurred: ", error);
     console.log(process.env.MONGODB_CONNSTR);
