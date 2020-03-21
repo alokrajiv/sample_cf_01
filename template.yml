@@ -5,9 +5,9 @@ Resources:
   TimeFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: index.handler
+      Handler: dist/index.handler
       Runtime: nodejs10.x
-      CodeUri: ./dist
+      CodeUri: ./
       Events:
         MyTimeApi:
           Type: Api
