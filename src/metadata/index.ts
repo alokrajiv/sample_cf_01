@@ -10,7 +10,7 @@ async function connectToDatabase (uri: string, dbName: string) {
     return Promise.resolve(cachedDb);
   }
 
-  const _client = await MongoClient.connect(uri);
+  const _client = await MongoClient.connect(uri, { useUnifiedTopology: true });
   cachedDb = _client.db(dbName);
   return cachedDb;
 }
@@ -21,7 +21,8 @@ async function queryDatabase (db: Db) {
 }
 
 exports.handler = async (event: any, context: any) => {
-  context.callbackWaitsForEmptyEventLoop = false;
+  // // Commenting best practise as per MongoDB Atlas.
+  // context.callbackWaitsForEmptyEventLoop = false;
 
   console.log("event: ", event);
 
