@@ -1,5 +1,5 @@
 let time = require("time");
-exports.handler = async (event, context) => {
+exports.handler = async (event: any, context: any) => {
     const currentTime = new time.Date();
     currentTime.setTimezone("America/Los_Angeles");
     return {
@@ -7,4 +7,3 @@ exports.handler = async (event, context) => {
         body: "The time in Los Angeles is: " + currentTime.toString(),
     };
 };
-//# sourceMappingURL=index.js.map
