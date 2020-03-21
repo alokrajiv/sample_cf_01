@@ -1,5 +1,4 @@
 import { MongoClient, Db } from "mongodb";
-const MONGODB_URI = process.env.MONGODB_URI; // or Atlas connection string
 
 let cachedDb: Db = undefined;
 
@@ -35,12 +34,12 @@ exports.handler = async (event: any, context: any) => {
   console.log("event: ", event);
 
   try {
-    const db = await connectToDatabase(process.env.MONGODB_URI, process.env.MONGODB_DBNAME);
+    const db = await connectToDatabase(process.env.MONGODB_CONNSTR, process.env.MONGODB_DBNAME);
     const result = await queryDatabase(db);
     console.log("=> returning result: ", result);
   } catch (error) {
     console.log("=> an error occurred: ", error);
-    console.log(process.env.MONGODB_URI);
+    console.log(process.env.MONGODB_CONNSTR);
     throw error;
   }
 };
