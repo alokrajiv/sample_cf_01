@@ -30,7 +30,7 @@ exports.handler = async (event: any, context: any) => {
     const db = await connectToDatabase(process.env.MONGODB_CONNSTR, process.env.MONGODB_DBNAME);
     const result = await queryDatabase(db);
     console.log("=> returning result: ", result);
-    return { statusCode: 200, body: result };
+    return { statusCode: 200, body: JSON.stringify(result) };
   } catch (error) {
     console.log("=> an error occurred: ", error);
     console.log(process.env.MONGODB_CONNSTR);
