@@ -1,6 +1,6 @@
 {
   "name": "bridge-lamda",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/tra-mes/bridge-lamda/issues"
   },
-  "homepage": "https://github.com/tra-mes/bridge-lamda#readme"
+  "homepage": "https://github.com/tra-mes/bridge-lamda#readme",
+  "dependencies": {
+    "time": "^0.12.0"
+  }
 }
