@@ -1,0 +1,19 @@
+{
+  "name": "bridge-lamda",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tra-mes/bridge-lamda.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tra-mes/bridge-lamda/issues"
+  },
+  "homepage": "https://github.com/tra-mes/bridge-lamda#readme"
+}
