@@ -1,5 +1,5 @@
 {
-    "name": "node-example",
+    "name": "sample-cf-app-01",
     "version": "0.0.1",
     "engines": {
       "node": "10.x",
